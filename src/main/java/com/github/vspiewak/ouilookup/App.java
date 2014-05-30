@@ -12,8 +12,17 @@ public class App {
 
     public static void main(String... args) throws IOException, URISyntaxException {
 
-        log.info("OUILookup: {}", OUILookup.ouiLookup("10:dd:b1:c9:25:d1"));
-        log.info("OUILookup: {}", OUILookup.ouiLookup("1c:3e:84:55:ea:b5"));
+        if (args.length < 1) {
+
+            log.info("You must provide a mac address in parameter");
+            System.exit(1);
+
+        }
+
+        String macAddress = args[0];
+        String manufacturer = OUILookup.ouiLookup(OUILookup.formatForOuiLookup(macAddress));
+
+        log.info("OUILookup: {} - {}", macAddress, manufacturer);
 
     }
 
