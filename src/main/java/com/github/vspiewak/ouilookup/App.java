@@ -22,7 +22,7 @@ public class App {
         String macAddress = args[0];
         String manufacturer = OUILookup.ouiLookup(OUILookup.formatForOuiLookup(macAddress));
 
-        log.info("OUILookup: {} - {}", macAddress, manufacturer);
+        log.info("{}", manufacturer);
 
     }
 
